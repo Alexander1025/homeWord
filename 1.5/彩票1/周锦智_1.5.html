@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		button {
+			margin-top: 50px;
+		}
+		#text {
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<p id="text"></p>
+	<button id="begin">开始</button>
+	<button id="stop">停止</button>
+	<script type="text/javascript">
+	var begin = document.getElementById("begin");
+	var stop = document.getElementById("stop");
+	var text = document.getElementById("text");
+	function randomInt(min,max){
+		return parseInt(Math.random()*(max - min) + min );
+	}
+	
+	var arr = [];
+	var result;
+	function roll (){
+		while (arr.length < 7){
+			var randomI = randomInt(1,100);
+			if(arr.indexOf(randomI) < 0 ){
+				arr.splice(arr.length,0,randomI);
+			}
+		}
+		arr.sort(function(a,b){return a-b});
+		result = arr.join("--");
+		text.innerHTML = result;
+		while (arr.length != 0 ){
+			arr.splice(0,1);
+		}
+	}
+	var timer = setInterval(roll,100);
+	begin.onclick = function(){
+		timer = setInterval(roll,100);
+	}
+	stop.onclick = function (){
+		clearInterval(timer);
+	}
+	</script>
+</body>
+</html>

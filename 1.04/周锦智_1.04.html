@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap{
+			margin: 50px auto ;
+			text-align: center;
+		}
+		.wrap button{
+			display: inline-block;
+			background-color: #ccc;
+			border: 1px solid blue;
+			width: 60px;
+			height: 30px;
+		}
+		.wrap_pic {
+			width: 510px;
+			height: 286px;
+			overflow: hidden;
+			margin: auto;
+			position: relative;
+		}
+		.pic {
+			position: absolute;
+			left: 0px;
+			overflow: hidden;
+			width: 99999px;
+			height: 286px;
+			
+			-webkit-transition: all 0.5s;
+			-moz-transition: all 0.5s;
+			-ms-transition: all 0.5s;
+			-o-transition: all 0.5s;
+			transition: all 0.5s;
+		}
+		.pic a{
+			display: block;
+			float: left;
+		}
+		.wrap .active_btn {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<button id="all">全选</button>
+	<button id="re">反选</button>
+	<input id="flag" type="checkbox">
+	<ul id="ul">
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+	</ul>
+
+	<div class="wrap">
+		<button class="active_btn">按钮1</button>
+		<button>按钮2</button>
+		<button>按钮3</button>
+		<button>按钮4</button>
+		<button>按钮5</button>
+		<button>按钮6</button>
+		<button>按钮7</button>
+		<button>按钮8</button>
+		<button>按钮9</button>
+		<div class="wrap_pic">
+			<div class="pic" id="pic">
+				<a href="###"><img src="images/1.jpg" alt=""></a>
+				<a href="###"><img src="images/2.jpg" alt=""></a>
+				<a href="###"><img src="images/3.jpg" alt=""></a>
+				<a href="###"><img src="images/4.jpg" alt=""></a>
+				<a href="###"><img src="images/5.jpg" alt=""></a>
+				<a href="###"><img src="images/6.jpg" alt=""></a>
+				<a href="###"><img src="images/7.jpg" alt=""></a>
+				<a href="###"><img src="images/8.jpg" alt=""></a>
+				<a href="###"><img src="images/9.jpg" alt=""></a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	// 1.
+	var str1 = "This is a world of programmers."
+
+	// a.获取字符串的长度
+	var stra = str1.length ;
+
+	// b.返回一个数组["this", "is", "a", "world", "of", "programmers."]
+
+	var strb = str1.split(" ");
+
+	// c.分别使用字符串方法（.slice(),.substring(),.substr()）返回"programmers";
+
+
+	// .splice
+	var strc1 = str1.slice(19,-1);
+
+	// .substring()
+	var strc2 = str1.substring(19,30);
+
+	// .substr
+	var strc3 = str1.substr(19,11);
+
+
+	// d.分别使用字符串方法（转换成大写字母以及小写字母）
+
+	var strd1 = str1.toLowerCase();
+
+	var strd2 = str1.toUpperCase();
+
+
+	// e.判断字符串里边是否有"hello","world";
+	if(str1.indexOf("hellow")>=0){
+		alert("有hello");
+	}else if(str1.indexOf("world")>=0){
+		alert("有world");
+	}else{
+		alert("什么都没有");
+	}
+
+
+	// f.搜索出字符串中所有的"s"的位置，并将其放进一个数组里边
+	var arr = [];
+	for(var i =0 ; i < str1.length ; i++){
+		if(str1[1]=="s"){
+			arr.splice(arr.length,0,i);
+		}
+	}
+	alert(arr);
+
+
+
+
+
+
+
+
+
+	// 2.有字符串"abcdefghiabc";
+	var str2 = "abcdefghiabc";
+
+	// a.如何获取字符串中的第二个的字符；
+	var str2a = str2.slice(1,2);
+
+	// b.将"abc"替换成"ABC";
+	var str2b = str2.replace(/abc/g,"ABC");
+
+
+
+
+
+
+
+
+
+	// 3.如何将字符串"豫章故郡人杰地灵，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物人杰地灵华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍人杰地灵枕夷夏之交，宾主尽东南之美。"中的 “人杰地灵”替换成黄底红字
+	var str3 = "豫章故郡人杰地灵，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物人杰地灵华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍人杰地灵枕夷夏之交，宾主尽东南之美。";
+	
+	// var arr = [];
+	// var i = 0 ;
+	// var j = 0;
+
+	// while(str.indexOf("人杰地灵",j+1) >= 0){
+		
+	// 	arr[i] = str.indexOf("人杰地灵",j+1);
+	// 	j = str.indexOf("人杰地灵",j+1);
+	// 	i++;
+	// }
+	var str2=str3.replace(/人杰地灵/g,'\<i style="background:yellow;color:red;font-style: normal;"\>人杰地灵\</i\>');
+	document.write(str2);
+
+
+
+
+	// 4.全选反选
+	var allBtn = document.getElementById("all");
+	var reBtn = document.getElementById("re");
+	var flag = document.getElementById("flag");
+	var cbList = document.querySelectorAll("#ul input");
+
+	allBtn.onclick = function(){
+		for(var i =0 ; i < cbList.length ; i++){
+			cbList[i].checked = true;
+		}
+		flag.checked = true;
+	}
+	
+	reBtn.onclick = function(){
+		for(var i = 0 ; i < cbList.length ; i++){
+			if(cbList[i].checked){
+				cbList[i].checked = false;
+			}else{
+				cbList[i].checked = true;
+			}
+		}
+		inspectAll();
+	}
+
+	function inspectAll(){
+		for(var j = 0 ; j < cbList.length ; j++){
+			if(cbList[j].checked == false) {
+				break;
+			}
+		}
+		if(j == cbList.length){
+			flag.checked = true;
+		}else{
+			flag.checked = false;
+		}
+	}
+
+	for(var i = 0 ; i < cbList.length ; i++){
+		cbList[i].onclick = inspectAll;
+	}
+
+
+
+
+
+
+	// 5.tab切换
+	var tabBtn = document.querySelectorAll(".wrap button");
+	var picwrap = document.getElementById("pic");
+	for(var i = 0 ; i < tabBtn.length ; i++){
+		tabBtn[i].index = i ;
+		tabBtn[i].onclick = function(){
+			picwrap.style.left = -510 * this.index +"px";
+			for(var j = 0 ; j < tabBtn.length ; j++){
+				tabBtn[j].className = "";
+			}
+			this.className = "active_btn";
+		}
+	}
+	</script>
+</body>
+</html>

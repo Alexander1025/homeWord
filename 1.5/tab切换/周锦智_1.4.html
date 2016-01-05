@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap {
+			margin: 50px auto 0px;
+
+		}
+		.btn_list {
+			text-align: center;
+		}
+		.btn_list button{
+			display: inline-block;
+			width: 70px;
+			height: 30px;
+			margin-top: 30px;
+			font-size: 16px;
+		}
+		.btn_list .active {
+			background-color: yellow;
+			color: red;
+		}
+		.picwrap {
+			margin: 50px auto 0px;
+			width: 510px;
+			height: 286px;
+			overflow: hidden;
+			position: relative;
+		}
+		.pic {
+			left: 0px;
+			position: absolute;
+			width: 99999px;
+			height: 286px;
+
+			-webkit-transition: all 0.6s;
+			-moz-transition: all 0.6s;
+			-ms-transition: all 0.6s;
+			-o-transition: all 0.6s;
+			transition: all 0.6s;
+		}
+		.pic a {
+			display: block;
+			float: left;
+		}
+		.pic a img {
+			width: 510px;
+			height: 286px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="picwrap">
+			<div class="pic" id="pic">
+				<a href="###"><img src="images/1.jpg" alt=""></a>
+				<a href="###"><img src="images/2.jpg" alt=""></a>
+				<a href="###"><img src="images/3.jpg" alt=""></a>
+				<a href="###"><img src="images/4.jpg" alt=""></a>
+				<a href="###"><img src="images/5.jpg" alt=""></a>
+				<a href="###"><img src="images/6.jpg" alt=""></a>
+				<a href="###"><img src="images/7.jpg" alt=""></a>
+				<a href="###"><img src="images/8.jpg" alt=""></a>
+				<a href="###"><img src="images/9.jpg" alt=""></a>
+			</div>
+		</div>
+		<div class="btn_list">
+			<button class="active">01</button>
+			<button>02</button>
+			<button>03</button>
+			<button>04</button>
+			<button>05</button>
+			<button>06</button>
+			<button>07</button>
+			<button>08</button>
+			<button>09</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var btnList = document.getElementsByTagName("button");
+		var pic = document.getElementById("pic");
+		var perWidth = 510;
+
+		var indexSkip = 0 ;
+
+		for(var i = 0 ; i < btnList.length ; i++){
+			btnList[i].index = i ;
+			btnList[i].onclick = function (){
+				indexSkip = this.index;
+				pic.style.left = - perWidth * indexSkip + "px";
+				for(var j = 0 ; j < btnList.length ; j++){
+					btnList[j].className = "";
+				}
+				btnList[indexSkip].className = "active" ;
+			}
+		}
+
+		
+		function skip (){
+			indexSkip++;
+			if(indexSkip > btnList.length - 1) {
+				indexSkip = 0;
+			}
+			pic.style.left = - perWidth * indexSkip + "px";
+			for(var i = 0 ; i < btnList.length ; i++){
+				btnList[i].className = "";
+			}
+			btnList[indexSkip].className = "active";
+		}
+		var timer = setInterval(skip,1000);
+		
+		pic.onmouseover = function() {
+			clearInterval(timer);
+		}
+		pic.onmouseout = function() {
+			timer = setInterval(skip,1000);
+		}
+	</script>
+</body>
+</html>
