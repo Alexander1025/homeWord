@@ -1,3 +1,0 @@
-1.使用svg画一个正六边形
-2.cookie的使用
-3.localStorage,sessionStorage的使用

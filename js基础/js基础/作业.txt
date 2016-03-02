@@ -1,3 +1,0 @@
-1.使用字面量声明并赋值基本数据类型(string,number,boolean,null,undefined)以及数组、对象；
-2.判断一个整数是否奇数；
-3.判断年份是否闰年

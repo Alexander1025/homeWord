@@ -1,5 +1,0 @@
-1.core:if,for,while,变量跟函数的声明，赋值，数据类型
-2.BOM:navigator.userAgent,location
-3.DOM:节点的操作（获取，生成，添加）
-4.事件（捕获，事件目标，冒泡）---》鼠标事件，键盘事件，触屏事件（点透现象,fastclick.js）
-5.效果（tab切换，大图滚动，拖拽，放大镜，模拟滚动条）

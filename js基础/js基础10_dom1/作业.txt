@@ -1,3 +1,0 @@
-1.作业（9*9乘法表）方法一：（使用createElement生成table,tr,td）
-方法二：使用table里的insertRow(),insertCell();
-2.新浪微博
