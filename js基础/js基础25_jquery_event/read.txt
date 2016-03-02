@@ -1,0 +1,6 @@
+1.AMD[require.js],CMD[sea.js]  [js模块加载]
+2.jade ejs   [html模板]
+3.node.js express mongodb
+4.gulp,bower
+5.mvc,mvvm   [设计概念，理念]
+angular.js react.js avalon.js vue.js

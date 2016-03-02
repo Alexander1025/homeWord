@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="wrap">
+		<li>
+			<a href="###">1</a>
+		</li>
+		<li>
+			<a href="###">2</a>
+		</li>
+		<!-- <li>
+			<a href="###">hello world</a>
+		</li> -->
+		<li>
+			<a href="###">3</a>
+		</li>
+		<li>
+			<a href="###">4</a>
+		</li>
+	</ul>
+	<p>
+		document.createElement();
+		innerHTML
+		createTextNode()
+		parentNode.appendChild();//从末尾插入
+		parentNode.insertBefore(newNode,targetNode);
+		//从指定的位置插入
+		parentNode.removeChild()
+	</p>
+	<script type="text/javascript">
+	var wrap = document.getElementById("wrap");
+
+	var list = document.createElement("li");
+	list.innerHTML = "<a>hello world</a>";
+	// var link = document.createElement("a");
+	// var alinkText = document.createTextNode("hello world");
+	// link.appendChild(alinkText);
+	// list.appendChild(link);
+
+	
+	// wrap.appendChild(list);
+	wrap.insertBefore(list,wrap.children[2]);
+	wrap.insertBefore(wrap.children[1],wrap.children[0])
+
+	</script>
+</body>
+</html>

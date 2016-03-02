@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<ul id="wrap">
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+	</ul>
+	<script type="text/javascript">
+	var list = document.getElementById("wrap").getElementsByTagName("li");
+	var list1 = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+	var list2 = document.getElementById("wrap").children;
+
+	for(var i = 0; i < list.length; i++) {
+		list[i].addEventListener("click",function() {
+			alert(this.innerHTML);
+		},false);
+	}
+	</script>
+</body>
+</html>

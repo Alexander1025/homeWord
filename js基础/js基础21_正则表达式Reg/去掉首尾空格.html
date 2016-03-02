@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去掉首尾空格</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<div>
+		分支 |
+	</div>
+	<script type="text/javascript">
+	var str = "   city name  ";
+	var reg = /^\s*|\s*$/g;
+	// var reg1 = /\s*$/;
+	// str.replace(reg,"");
+	//去掉字符串首尾空格的函数
+	function trim(str) {
+		if(String.prototype.trim) {
+			return str.trim();
+		}else {
+			var reg = /^\s*|\s*$/g;
+			return str.replace(reg,"");
+		}
+	}
+	trim(str);
+	</script>
+</body>
+</html>

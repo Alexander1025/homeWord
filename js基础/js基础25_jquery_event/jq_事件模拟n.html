@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<ol>
+		<li>
+			事件绑定 bind,on，解绑unbind,off
+		</li>
+		<li>
+			阻止冒泡，阻止默认事件
+		</li>
+		<li>
+			事件委托，事件代理
+		</li>
+		<li>
+			事件模拟
+		</li>
+	</ol>
+	<div>
+		mouserenter,mouseleave 不冒泡
+		mouserover,mouseout  冒泡
+		focus,blur   ---不冒泡
+		focusin,   冒泡
+		focuout		冒泡
+	</div>
+	<script type="text/javascript">
+		$(document).on("click",function() {
+			alert("document click")
+			console.log("document click")
+		})
+		$(document).trigger("click")
+	</script>
+</body>
+</html>

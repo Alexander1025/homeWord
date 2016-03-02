@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+</head>
+<body>
+	<p>
+		javascript 是没有块级作用域的，只有函数级的作用域
+	</p>
+	<script type="text/javascript">
+		if(true) {
+			var num = 10;
+		}
+		function f() {
+			var str = "str";
+
+			return str;
+		}
+		
+		alert(f());
+
+		function person() {
+			var name = "xuefei";
+			var age = 26;
+			return {
+				name:name,
+				age:age
+			}
+		}
+		var p = person();
+	</script>
+</body>
+</html>

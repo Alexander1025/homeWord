@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>caipiao</title>
+</head>
+<body>
+	<div id="wrap"></div>
+	<button id="goBtn">go</button>
+	<button id="stopBtn">stop</button>
+
+	<script type="text/javascript">
+	var wrap = document.getElementById("wrap");
+	var goBtn = document.getElementById("goBtn");
+	var stopBtn = document.getElementById("stopBtn");
+	function rnd(min, max) {
+		return parseInt(Math.random()*(max - min + 1) + min);
+	}
+	function rndArray(min, max, length) {
+		//先定义一个空数组
+		var arr = [];
+		//生成一个长度为7的数组
+		while(arr.length < length) {
+			//生成一个随机数
+			var rand = rnd(min, max);
+			//判断生成的随机数rand是否在数组arr里,果然不在，就将这个随机数插入到数组里，如果在，执行下一次循环
+			if(arr.indexOf(rand) == -1) {
+				arr.push(rand);
+			}
+		}
+		arr.sort(function(a, b){return a - b;})
+		return arr;
+	}
+	wrap.innerHTML = rndArray(1,33,7);
+	var timer = 0;
+
+	goBtn.onclick = function() {
+		clearInterval(timer);
+		timer = setInterval(function() {
+			wrap.innerHTML = rndArray(1,33,7);
+		},100)
+		console.log(timer);
+	}
+	stopBtn.onclick = function() {
+		clearInterval(timer);
+	}
+	
+
+
+
+	</script>
+</body>
+</html>

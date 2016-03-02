@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {margin:0; padding: 0}
+		button {
+			width: 50px;
+		}
+		p {
+			text-align: center;
+		}
+		.active {
+			background-color: yellow;
+		}
+		#wrap {
+			width:510px;
+			overflow: hidden;
+			margin:0 auto;
+		}
+		#inner {
+			width:9999px;
+			overflow: hidden;
+			position: relative;
+			left:0;
+			transition: left 0.6s;
+		}
+		#inner a {
+			float: left;
+		}
+		#inner img {
+			display: block;
+			width:510px;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div id="wrap">
+		<div id="inner">
+			<a href="###"><img src="img/1.jpg"></a>
+			<a href="###"><img src="img/2.jpg"></a>
+			<a href="###"><img src="img/3.jpg"></a>
+			<a href="###"><img src="img/4.jpg"></a>
+			<a href="###"><img src="img/5.jpg"></a>
+			<a href="###"><img src="img/6.jpg"></a>
+			<a href="###"><img src="img/7.jpg"></a>
+			<a href="###"><img src="img/8.jpg"></a>
+		</div>
+	</div>
+	<p>
+		<button class="active">1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>
+		<button>6</button>
+		<button>7</button>
+		<button>8</button>
+	</p>
+	<script type="text/javascript">
+	//1.找节点
+	var buttonList = document.getElementsByTagName("button");
+	var inner = document.getElementById("inner");
+	var perWidth = inner.children[0].offsetWidth;
+	
+	function tab() {
+		inner.style.left = - perWidth * index + "px";
+		for(var j = 0; j < buttonList.length; j++) {
+			buttonList[j].className = "";
+		}
+		buttonList[index].className = "active";
+	}
+	for(var i = 0; i < buttonList.length; i++) {
+		buttonList[i].index = i;
+		buttonList[i].onclick = function() {
+			index = this.index;
+			tab();
+		}
+	}
+	var index = 0;
+	function next() {
+		index ++;
+		if(index > buttonList.length - 1) {
+			index = 0;
+		}
+		tab();
+	}
+	var timer = setInterval(next,1000);
+
+	inner.onmouseover = function() {
+		// alert("鼠标移入");
+		clearInterval(timer);
+	}
+	inner.onmouseout = function() {
+		timer = setInterval(next,1000);
+	}
+	</script>
+</body>
+</html>

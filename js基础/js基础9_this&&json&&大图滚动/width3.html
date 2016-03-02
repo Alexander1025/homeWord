@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>width</title>
+	<style type="text/css">
+	#block {
+		height:200px;
+		width:10px;
+		background-color: hsla(240,100%,50%,0.5);
+	}
+	</style>
+</head>
+<body>
+	<div id="block"></div>
+	<p>
+		只需要找出开始状态，跟结束状态的
+	</p>
+	<script type="text/javascript">
+	var Tween = {
+			Bounce: {
+				easeIn: function(t,b,c,d,s){
+				    if (s == undefined) s = 1.70158;
+				    return c*(t/=d)*t*((s+1)*t - s) + b;
+				},
+				easeOut: function(t,b,c,d,s){
+				    if (s == undefined) s = 1.70158;
+				    return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+				},
+			    easeInOut: function(t,b,c,d){
+			        if (t < d/2) return Tween.Bounce.easeIn(t*2, 0, c, d) * .5 + b;
+			        else return Tween.Bounce.easeOut(t*2-d, 0, c, d) * .5 + c*.5 + b;
+			    }
+			}
+	}
+	var block = document.getElementById("block");
+	var start = block.offsetWidth;//开始状态
+	var end = 500;  //结束状态
+	var change = end - start;
+	var t = 0;
+	var maxT = 40;
+	var timer = setInterval(function() {
+		t++;
+		if(t >= maxT) {
+			clearInterval(timer);
+		}
+		block.style.width = Tween.Bounce.easeInOut(t,start,change,maxT)  + "px";
+	},30);
+	</script>
+</body>
+</html>

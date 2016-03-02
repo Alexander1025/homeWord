@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+</head>
+<body>
+	<input type="text">
+	<div>
+		onkeydown（所有的）,onkeypress,onkeyup
+		keypress (只触发实体键（字母，数字，_,空格，enter键。。）触发的事件)
+	</div>
+	<script type="text/javascript">
+	document.onkeydown = function(e) {
+		var e = e || window.event;
+		console.log("keydown")
+	}
+	document.onkeypress = function(e) {
+		var e = e || window.event;
+		console.log("keypress")
+	}
+	document.onkeyup = function(e) {
+		var e = e || window.event;
+		console.log("keyup")
+	}
+	</script>
+</body>
+</html>

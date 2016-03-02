@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>
+		基本数据类型，按值传递的，不添加属性
+		对象，按引用传递的
+	</p>
+	<script type="text/javascript">
+	var arr = [1,2,3,4,5,6,7,8,9,10];
+	var arr1 = [];
+	for(var i = 0; i < arr.length; i++ ) {
+		// arr1.push(arr[i]);
+		arr1[i] = arr[i];
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+</head>
+<body>
+	<div onclick="alert(123)">
+		1.行内脚本
+		2.通过on对象属性绑定的事件，只能绑定一次，如果绑定多次会被后面的相同的事件覆盖掉。DOM0事件
+		3.事件绑定addEventListener,属于DOM2事件，（ie8及以下不支持）可以绑定多个事件
+	</div>
+	<div>
+		事件移除
+		1.通过on绑定的，直接让ele.onclick= null;
+		2.addEventListener 就使用removeEventListener，参数要跟绑定事件时的完全一致
+	</div>
+	<div>
+		以上是生成或移除时，以下是使用时：
+
+		element.addEventListener(eventType,handler,boolean); //添加事件
+
+		element.addEventListener(eventType,handler,true);  //添加在捕获
+
+		element.addEventListener(eventType,handler,false);  //添加在冒泡
+		
+		阻止冒泡： 
+
+		e.cancelBubble = true;  //阻止冒泡  加在on事件里面
+
+		e.stopPropogation();	//阻止冒泡   还有   阻止捕获		加在add的事件里面
+
+
+
+		扩展：
+		//addEventListener
+		e.preventDefault();//阻止默认事件
+
+		//通过on这种方式绑定的事件，阻止默认事件
+		return false;
+		
+	</div>
+	
+	<script type="text/javascript">
+	document.onclick = f;
+	document.onclick = null;
+	// document.addEventListener("click",function(){
+	// 	alert("click")
+	// },false);
+	function f() {
+		alert("on click document");
+	}
+	document.addEventListener("click",f,false);
+	document.removeEventListener("click",f,false);
+	document.addEventListener("click",function(){
+		alert("document");
+	},false);
+	document.removeEventListener("click",function() {
+		alert("document");
+	},false)
+	</script>
+</body>
+</html>

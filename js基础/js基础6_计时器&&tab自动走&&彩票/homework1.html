@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+</head>
+<body>
+	<pre>
+		二.有字符串"abcdefghiabc"; a.如何获取字符串中的第二个的字符； b.将"abc"替换成"ABC";
+
+		三.如何将字符串"豫章故郡人杰地灵，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物人杰地灵华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍人杰地灵枕夷夏之交，宾主尽东南之美。"中的 “人杰地灵”替换成黄底红字
+	</pre>
+	<div id="text">
+		豫章故郡人杰地灵，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物人杰地灵华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍人杰地灵枕夷夏之交，宾主尽东南之美。
+	</div>
+	<script type="text/javascript">
+	var str = "abcdefghiabc";
+	console.log(str.replace(/abc/g,"ABC"));
+
+	var text = document.getElementById("text");
+
+	var replaceTxt = text.innerHTML.replace(/(人杰地灵)/g,"<span style='color:#f00;background-color:yellow;'>$1</span>");
+	text.innerHTML = replaceTxt;
+	</script>
+</body>
+</html>

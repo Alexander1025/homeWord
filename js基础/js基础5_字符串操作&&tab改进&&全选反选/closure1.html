@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+</head>
+<body>
+	<p>
+		javascript 避免命名冲突 (匿名函数自执行)
+	</p>
+	<script type="text/javascript" src="sum.js"></script>
+	<script type="text/javascript">
+		!(function() {
+			var sum = 123;
+			alert(sum);
+		})()
+	</script>
+</body>
+</html>

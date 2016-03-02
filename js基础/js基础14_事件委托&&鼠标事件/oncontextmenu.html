@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>右键菜单</title>
+	<style type="text/css">
+		* {
+			margin:0;
+			padding: 0;
+		}
+		#menu {
+			display: none;
+			position: fixed;
+			left:0;
+			top:0;
+		}
+		ol,li {
+			list-style: none
+		}
+		ol {
+			border:1px solid red;
+			width:200px;
+		}
+		ol li:hover {
+			background-color: blue;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<ol id="menu">
+		<li>list01</li>
+		<li>list02</li>
+		<li>list03</li>
+		<li>list04</li>
+	</ol>
+	<script type="text/javascript">
+	var menu = document.getElementById("menu");
+	document.oncontextmenu = function(e) {
+		var e = e || window.event;
+		console.log(e.clientX,e.clientY);
+		menu.style.display = "block";
+		// if(e.clientX > document.documentElement.clientWidth - menu.offsetWidth) {
+		// 	var mLeft = document.documentElement.clientWidth - menu.offsetWidth
+		// }
+		// if(e.clientY > document.documentElement.clientHeight - menu.offsetHeight) {
+		// 	var mTop = document.documentElement.clientHeight - menu.offsetHeight;
+		// }
+		var mLeft = (e.clientX > document.documentElement.clientWidth - menu.offsetWidth)?(document.documentElement.clientWidth - menu.offsetWidth):e.clientX;
+		var mTop = (e.clientY > document.documentElement.clientHeight - menu.offsetHeight)?(document.documentElement.clientHeight - menu.offsetHeight):e.clientY;
+		menu.style.left = mLeft + "px";
+		menu.style.top = mTop + "px";
+
+		return false;
+	}
+	menu.onclick = function(e) {
+		var e = e || window.event;
+		e.cancelBubble = true;
+	}
+	document.onclick = function() {
+		menu.style.display = "none";
+	}
+	</script>
+</body>
+</html>

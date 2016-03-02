@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>
+		url:http://192.168.6.105/jquery_ajax/a.php
+	</h1>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		// var url = "a.txt";
+		var url = "a.html";
+		// var data = "t="+ (new Date()).getTime();
+		var data1 = "name=shafee&age=27";
+		// var data1 = {name:"shafee",age:27};
+
+		$.get(url,data1,function(res) {
+			console.log(res)
+			// $(document.body).html(res);
+		},"html")
+	})
+	</script>
+</body>
+</html>

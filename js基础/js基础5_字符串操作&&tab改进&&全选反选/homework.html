@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+</head>
+<body>
+	<p>
+		array.every()
+		array.some();
+		array.filter();
+		array.forEach();
+		array.map();
+	</p>
+	<script type="text/javascript">
+	var arr = [12,3,1,28,43,9,10];
+	//a.值由小到大排序
+	// arr.sort(function(a,b) {
+	// 	return a-b;
+	// })
+	//b.转换成字符串（格式：x-x-x-x-x）
+	var arr1 = arr.join("-");
+	//c.返回数组的前4个数
+	var arr2 = arr.slice(0, 4);
+	// var arr3 = arr.splice(0, 4);
+	//d.删除数组中的28，43
+	// arr.splice(3,2);
+	//e.在倒数第二位的后面插入值20，40
+	// arr.splice(-1,0,20,40);
+
+	/**
+	@method sqrtSum
+	@param array {Array} 计算数组的平方和
+	*/
+	function sqrtSum(array) {
+		var sum = 0;
+		//逻辑代码
+		for(var i = 0; i < array.length; i++) {
+			sum = sum + array[i]*array[i];
+		}
+		return sum;
+	}
+	sqrtSum([1,2,3]);
+
+	function sqrtArray(array) {
+		var arr = [];
+		for(var i = 0; i < array.length; i++) {
+			arr[i] = array[i]*array[i];
+		}
+		return arr;
+	}
+	var result = sqrtArray([1,2,3]);
+	</script>
+</body>
+</html>

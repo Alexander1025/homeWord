@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#wrap {
+			overflow: hidden;
+		}
+		#wrap li {
+			float: left;
+			width: 250px;
+			font-size: 56px;
+			margin: 0 20px;
+			list-style-type: none;
+		}
+		#wrap li img{
+			width:100%;
+			background:#C0C0C0 url("img/no-pic.png") no-repeat;
+			background-position: center center;
+			height: 120px;
+		}
+		#wrap li div {
+			margin-bottom: 20px;
+			border: 1px solid red;
+			background-color: #ccc;
+		}
+		header {
+			height: 1200px;
+		}
+	</style>
+</head>
+
+<body>
+	<header></header>
+	<div>
+		懒加载,页面不会一开始就加载所有的内容，按需加载
+	</div>
+	<ul id="wrap">
+		<li>
+			<img data-src="img/p1.jpg" alt="" />
+			<img data-src="img/p3.jpg" alt="" />
+			<img data-src="img/p2.jpg" alt="" />
+		</li>
+		<li>
+			<img data-src="img/p1.jpg" alt="" />
+			<img data-src="img/p8.jpg" alt="" />
+			<img data-src="img/p4.jpg" alt="" />
+			<img data-src="img/p2.jpg" alt="" />
+		</li>
+		<li>
+			<img data-src="img/p3.jpg" alt="" />
+			<img data-src="img/p6.jpg" alt="" />
+			<img data-src="img/p1.jpg" alt="" />
+			<img data-src="img/p9.jpg" alt="" />
+		</li>
+	</ul>
+	<script type="text/javascript">
+	var imgList = document.getElementById("wrap").getElementsByTagName("img");
+	function getPosition(element) {
+		var x = element.offsetLeft;
+		var y = element.offsetTop;
+		while(element.offsetParent) {
+			x = x + element.offsetParent.offsetLeft + element.offsetParent.clientLeft;
+			y = y + element.offsetParent.offsetTop + element.offsetParent.clientTop;
+			element = element.offsetParent;
+		}
+		return {x:x,y:y};
+	}
+	window.onscroll = function() {
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		for(var i = 0; i < imgList.length; i++ ) {
+			//当页面可视区还看不到的时候getPosition(imgList[i]).y > scrollTop + document.documentElement.clientHeight
+			//imgList[i].getBoundingClientRect().top + scrollTop = getPosition(imgList[i]).y
+			if(getPosition(imgList[i]).y <= scrollTop + document.documentElement.clientHeight) {
+				// alert("到底了")
+				imgList[i].src = imgList[i].getAttribute("data-src");
+				imgList[i].style.height = "auto";
+			}
+			// if(imgList[i].getBoundingClientRect().top + scrollTop <= scrollTop + document.documentElement.clientHeight) {
+			// 	// alert("到底了")
+			// 	imgList[i].src = imgList[i].getAttribute("data-src");
+			// 	imgList[i].style.height = "auto";
+			// }
+		}
+	}
+	</script>
+</body>
+</html>

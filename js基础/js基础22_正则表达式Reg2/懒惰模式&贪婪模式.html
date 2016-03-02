@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		贪婪模式：尽可能匹配最大长度的
+		懒惰模式：尽可能匹配最小的长度
+		*,+,{n,}
+		*?,+?,{n,}?
+	</div>
+	<script type="text/javascript">
+	var str = "baaaadogdd";
+	var reg = /a.*d/;//贪婪模式
+	var reg1 = /a(.*?)d/;//懒惰模式
+	// console.log(str.match(reg));
+	</script>
+</body>
+</html>

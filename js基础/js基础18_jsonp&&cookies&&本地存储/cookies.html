@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cookie</title>
+</head>
+<body>
+	<div>
+		cookie 就是一段保存用户信息数据的文本，保存在本地（浏览器）上。大小4k左右,chrome大概150条左右
+		每次请求页面都会附在请求头部一起发送，占用一定的带宽。也会存在一些安全性问题。
+	</div>
+	<script type="text/javascript">
+		for(var i = 0; i < 500; i++) {
+			document.cookie = "name"+i+"="+i;
+		}
+	</script>
+</body>
+</html>

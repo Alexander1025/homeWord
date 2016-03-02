@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>年份能够被4整除且不能被100整除，或者能够被400整除</p>
+	<script type="text/javascript">
+	var year = 2015;
+
+	(((year % 4 == 0) && (year % 100 !=0)) || (year % 400 == 0)) ? (alert(year + "今年是闰年")):(alert(year + "今年是平年"))
+	</script>
+</body>
+</html>

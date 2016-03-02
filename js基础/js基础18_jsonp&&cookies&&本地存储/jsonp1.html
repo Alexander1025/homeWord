@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		DNS(域名系统)
+		hosts
+	</div>
+	<input type="text" id="input">
+	<a href="javascript:;" id="submitBtn">提交</a>
+	<script type="text/javascript">
+		var input = document.getElementById("input");
+		var submitBtn = document.getElementById("submitBtn");
+
+		function f(data) {
+			console.log(data);
+		}
+		submitBtn.onclick = function() {
+			var s = document.createElement("script");
+			var url = "jsonp.php?key="+input.value+"&callback=f";
+			s.src = url;
+			document.head.appendChild(s);
+			document.head.removeChild(s);
+		}
+
+	</script>
+</body>
+</html>

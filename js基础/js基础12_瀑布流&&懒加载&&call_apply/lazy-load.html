@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			#wrap {
+				overflow: hidden;
+			}
+			#wrap li {
+				float: left;
+				width: 250px;
+				font-size: 56px;
+				margin: 0 20px;
+				list-style-type: none;
+			}
+			#wrap li img{
+				width:100%;
+				background:#C0C0C0 url("img/no-pic.png") no-repeat;
+				background-position: center center;
+				height: 120px;
+			}
+			#wrap li div {
+				margin-bottom: 20px;
+				border: 1px solid red;
+				background-color: #ccc;
+			}
+			header {
+				height: 500px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header></header>
+		<ul id="wrap">
+			<li>
+				<img data-src="img/p1.jpg" alt="" />
+				<img data-src="img/p3.jpg" alt="" />
+				<img data-src="img/p2.jpg" alt="" />
+			</li>
+			<li>
+				<img data-src="img/p1.jpg" alt="" />
+				<img data-src="img/p8.jpg" alt="" />
+				<img data-src="img/p4.jpg" alt="" />
+				<img data-src="img/p2.jpg" alt="" />
+			</li>
+			<li>
+				<img data-src="img/p3.jpg" alt="" />
+				<img data-src="img/p6.jpg" alt="" />
+				<img data-src="img/p1.jpg" alt="" />
+				<img data-src="img/p9.jpg" alt="" />
+			</li>
+		</ul>
+	</body>
+	<script>
+		//以下函数返回元素的文档坐标
+		function getPosition(ele) {
+			var x = ele.offsetLeft;
+			var y = ele.offsetTop;
+			while(ele.offsetParent){
+				x = x + ele.offsetParent.offsetLeft + ele.offsetParent.clientLeft;
+				y = y + ele.offsetParent.offsetTop + ele.offsetParent.clientTop;
+				ele = ele.offsetParent;
+			}
+			return {x:x,y:y};
+		}
+		
+		var wrap = document.getElementById("wrap");
+		var imgList = wrap.getElementsByTagName("img");
+		
+		window.onscroll = window.resize = function() {
+			var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+			//判断每张图片的文档y方向上的坐标是不是比scrollTop + document.documentElement.clientHeight;
+			for(var i = 0 ; i < imgList.length; i++) {
+				if(getPosition(imgList[i]).y <= scrollTop + document.documentElement.clientHeight)
+				{
+					var src = imgList[i].getAttribute("data-src");
+					imgList[i].setAttribute("src",src);
+					imgList[i].style.height = "auto";
+				}
+			}
+		}
+	</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin:0;
+			padding:0;
+		}
+		#minBox {
+			position: relative;
+			border:1px solid #d9d9d9;
+			width: 350px;
+			height: 350px;
+			margin-left: 30px;
+			margin-top: 10px;
+		}
+		#slider {
+			display: none;
+			position: absolute;
+			width:150px;
+			height: 150px;
+			background-color: yellow;
+			opacity: 0.3;
+		}
+		#minBox img {
+			position: absolute;
+		}
+		#maxBox {
+			display: none;
+			position: absolute;
+			overflow: hidden;
+			left:400px;
+			top:0;
+			width:500px;
+			height: 500px;
+			border:1px solid #d9d9d9;
+		}
+		#maxBox img {
+			position: absolute;
+		}
+		body {
+			height: 5000px;
+		}
+	</style>
+</head>
+<body>
+	<div id="minBox">
+		<img src="img/min.jpg">
+		<div id="slider"></div>
+	</div>
+	<div id="maxBox">
+		<img src="img/max.jpg">
+	</div>
+	<div>
+		sTop / (minBox.clientHeight - slider.offsetHeight) = maxTop(???) /(maxImg.clientHeight - maxBox.offsetHeight);
+	</div>
+	<script type="text/javascript">
+	var minBox = document.getElementById("minBox");
+	var slider = document.getElementById("slider");
+	var maxBox = document.getElementById("maxBox");
+	var maxImg = maxBox.children[0];
+	
+	var minBoxPos = minBox.getBoundingClientRect();
+
+	minBox.onmousemove = function(e) {
+		var e = e || window.event;
+		slider.style.display = "block";
+		maxBox.style.display = "block";
+
+		var sLeft = e.clientX - minBoxPos.left - slider.offsetWidth/2;
+		var sTop = e.clientY - minBoxPos.top - slider.offsetHeight/2;
+		if(sLeft < 0) {
+			sLeft = 0;
+		}else if(sLeft > minBox.clientWidth - slider.offsetWidth) {
+			sLeft = minBox.clientWidth - slider.offsetWidth
+		}
+		if(sTop < 0) {
+			sTop = 0;
+		}else if(sTop > minBox.clientHeight - slider.offsetHeight) {
+			sTop = minBox.clientHeight - slider.offsetHeight;
+		}
+		//sLeft 是slider滑块left移动的距离,
+		//minBox.clientWidth - slider.offsetWidth滑块slider所能left移动的最大距离,
+		var scaleX = sLeft / (minBox.clientWidth - slider.offsetWidth);
+		var scaleY = sTop / (minBox.clientHeight - slider.offsetHeight);
+		// console.log(scaleX);
+		slider.style.left = sLeft + "px";
+		slider.style.top = sTop + "px";
+		maxImg.style.left = - scaleX * (maxImg.clientWidth - maxBox.offsetWidth) + "px";;
+		maxImg.style.top = - scaleY * (maxImg.clientHeight - maxBox.offsetHeight) + "px";
+	}
+	//移出滑块的时候
+	minBox.onmouseleave = function() {
+		slider.style.display = "none";
+		maxBox.style.display = "none";
+	}
+	</script>
+</body>
+</html>

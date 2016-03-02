@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		分组
+		reg.test();
+		string.replace(reg,"");
+		string.match();返回一个数组
+		string.search();
+	</div>
+	<div id="wrap">
+		sf dog dog A A cat catsdfsf  catsdfsf
+	</div>
+	<script type="text/javascript">
+		var str = "sf dog dog A A cat catsdfsf  sdf ";
+		var reg = /(\b.+\b)\s\1\b/g;
+		var wrap = document.getElementById("wrap");
+		wrap.innerHTML = wrap.innerHTML.replace(reg,"<span style='color:white;background-color:blue;'>$1 $1</span>")
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom</title>
+</head>
+<body>
+	<p>
+		获取元素的方法：document.getElementById()
+		document.getElementsByTagName()
+		document.querySelector()
+		document.querySelectorAll();
+	</p>
+	<script type="text/javascript">
+	//创建一个div元素
+	var wrap = document.createElement("div");
+	// var text = document.createTextNode("wrap wrap");
+	// wrap.appendChild(text);
+	wrap.innerHTML = "<a href=''>hellow woow</a>";
+	//插入到document文档中
+	document.body.appendChild(wrap);
+	document.body.insertBefore(wrap,document.body.children[1]);
+	</script>
+</body>
+</html>

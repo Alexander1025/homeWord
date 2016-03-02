@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this</title>
+</head>
+<body>
+	<p>
+		构造函数？？
+	</p>
+	<script type="text/javascript">
+	var person = {
+		name:"小明",
+		age:20,
+		say:function() {
+			console.log(this);
+			var self = this;
+			setTimeout(function() {
+				console.log(this);
+				console.log(self);
+			},1000)
+		}
+	}
+	person.say();
+	</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom</title>
+</head>
+<body>
+	<ul id="wrap">
+		<li class="one">01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+		<li>05</li>
+		<li>06</li>
+		<li class="last">07</li>
+   </ul>
+   <div>
+   		$("#wrap")  --->获取元素
+   		$("<p></p>") --->创建元素
+   </div>
+   <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+   <script type="text/javascript">
+   //创建一个元素
+   var $li = $("<li></li>",{
+   		text:"list list",
+   		"data-index":"hell"
+   		// click:function() {
+   		// 	alert(1)
+   		// }
+   });
+   // $li.click(function() {
+   // 	alert(1)
+   // })
+   //将创建的元素添加到文档
+   // $("#wrap").append($li);
+   // $li.appendTo($("#wrap"));
+   var $list = $("<li></li>",{
+   		id:"list",
+   		class:"wrap-list",
+   		click:function() {
+   			alert(1);
+   		}
+   })
+   // $list.insertBefore($("#wrap li").eq(4));
+   $("#wrap li").eq(4).before($list);
+   // $("#wrap li").eq(3).after($list);
+   // $list.insertAfter($("#wrap li"));
+   $("#wrap").css("border","1px solid red");
+   $("#wrap").html();
+   
+   //2
+   $(".one").css({
+   		fontSize:28,
+   		color:"red"
+   }).html("<a href='http://www.baidu.com'>百度一下</a>");
+   // $(".one").css("width",300)
+   //3
+   $("#wrap li").eq(2).insertAfter($("#wrap li").eq(0))
+
+   //4.
+   $("#wrap li").eq(6).remove();
+   $("#wrap li").eq(6).empty();
+   $("#wrap li").eq(6).html("");
+
+   //5
+   $("#wrap").clone().insertAfter($("#wrap"));
+   </script>
+</body>
+</html>

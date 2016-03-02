@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>
+		求1到100的和
+	</p>
+	<script type="text/javascript">
+	function isEven(num) {
+		return (num % 2 == 0);
+	}
+	function isR(year) {
+		return (year%4 == 0 && year%100 != 0 || year % 400 == 0)
+	}
+
+	function sum(start,end) {
+		var result = 0;
+		for(var i = start; i <= end;i++) {
+			result += i;
+		}
+		}
+		return result;
+	}
+	alert("900到1000的和：" + sum(1,10));
+	</script>
+</body>
+</html>

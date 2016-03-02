@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>call,apply</title>
+</head>
+<body>
+	<div>
+		call,apply改变this的指向
+		函数的方法
+		函数也是对象
+		fun.call(obj,a,b,c,d,e);
+		fun.apply(obj,[a,b,c,d,e]);
+	</div>
+	<script type="text/javascript">
+	function say(name,age) {
+		console.log(this,name,age);
+	}
+	var obj = {
+		name:"小明",
+		say:function() {
+			console.log(this.name)
+		}
+	}
+	var name = "全局";
+	say();
+	say.call(obj,"a",20);
+	obj.say.call(window);
+	obj.say.apply(window);
+	</script>
+</body>
+</html>

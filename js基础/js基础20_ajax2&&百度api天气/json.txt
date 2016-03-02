@@ -1,0 +1,1 @@
+{"name":"小明","age":20,"gold":10000,"borther":[{"name":"大哥","age":22,"gold":10000},{"name":"二哥","age":21,"gold":10000}]}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tween</title>
+	<style type="text/css">
+		#block {
+			width:100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			top:0;
+			left:100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="block"></div>
+	<script type="text/javascript">
+	var block = document.getElementById("block");
+	var start = block.offsetTop;
+	var end = 500;
+	var change = end - start;
+	var t = 0;
+	var maxT = 30;
+	var timer = setInterval(function() {
+		t++;
+		if(t >= maxT ) {
+			clearInterval(timer);
+		}
+		block.style.top = change*t/maxT + start + "px";
+	},30)
+	</script>
+</body>
+</html>

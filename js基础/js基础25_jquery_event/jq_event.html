@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<ol>
+		<li>
+			事件绑定，解绑
+		</li>
+		<li>
+			阻止冒泡，阻止默认事件
+		</li>
+		<li>
+			事件委托，事件代理
+		</li>
+		<li>
+			事件模拟
+		</li>
+	</ol>
+	<script type="text/javascript">
+	$(document).click(function() {
+		console.log("document")
+	})
+	$(document).click(function() {
+		console.log("document document")
+	})
+	$(document).bind("click",function() {
+		console.log("document bind")
+	})
+	$(document).keypress(function() {
+		console.log("document")
+	})
+	</script>
+</body>
+</html>

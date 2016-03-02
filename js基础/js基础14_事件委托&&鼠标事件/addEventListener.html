@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>addEventListener</title>
+</head>
+<body>
+	<div id="block" onclick="f();">
+		<a href="###" id="alink">百度一下</a>
+	</div>
+	<script type="text/javascript">
+	var block = document.getElementById("block");
+	function f() {
+		alert("block");
+	}
+	block.onclick = function() {
+		alert("block again");
+	}
+	block.addEventListener("click", function() {
+		alert("block again again");
+	}, false);
+	</script>
+</body>
+</html>

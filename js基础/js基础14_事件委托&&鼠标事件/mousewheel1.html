@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mousewheel</title>
+	<style type="text/css">
+		body {
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		鼠标滚轮向下滑动body颜色变成红色，向上变成蓝色
+	</div>
+	<script type="text/javascript">
+	document.onmousewheel = function(e) {
+		var e = e || window.event;
+		if(e.wheelDelta < 0) {
+			alert("down");
+			document.body.style.backgroundColor = "red";
+		}else {
+			alert("up");
+			document.body.style.backgroundColor = "blue";
+		}
+		console.log(e);
+	}
+	document.addEventListener("DOMMouseScroll",function(e){
+		if(e.detail < 0) {
+			alert("up");
+			document.body.style.backgroundColor = "blue";
+		}else {
+			alert("down");
+			document.body.style.backgroundColor = "red";
+		}
+		console.log(e)
+	}, false)
+	</script>
+</body>
+</html>

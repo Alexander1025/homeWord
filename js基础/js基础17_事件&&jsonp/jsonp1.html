@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jsonp</title>
+	</head>
+	<body>
+		<div>
+			同源策略(基于安全性的考虑，只能访问相同域名下的数据)
+			跨域（访问其他域名下的数据）
+		</div>
+		<div id="">
+			jsonp
+		</div>
+		<input type="text" id="keyword" />
+		<div id="result"></div>
+		<script>
+			var keyword = document.getElementById("keyword");
+			var result = document.getElementById("result");
+			function aaa(d) {
+				console.log(d.s);
+				var html = "";
+				for(var i = 0; i < d.s.length; i++) {
+					html += d.s[i] + "<br/>";
+				}
+				result.innerHTML = html;
+				//result.innerHTML = d.s;
+			}
+			
+			keyword.oninput = function() {
+				var script = document.createElement("script");
+				script.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+keyword.value+"&cb=aaa"
+				document.head.appendChild(script);
+				document.head.removeChild(script);
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+

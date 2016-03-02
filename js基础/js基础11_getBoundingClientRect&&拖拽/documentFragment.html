@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>文档碎片</title>
+		<style>
+			body {
+				height: 2000px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			页面的渲染(render)，重绘(repaint)，重排(reflow)？
+		</div>
+		<script>
+//			var ul = document.createElement("ul");
+//			document.body.appendChild(ul);
+//			for(var i = 0; i < 10; i++) {
+//				var li = document.createElement("li");
+//				li.innerHTML = i;
+//				ul.appendChild(li);
+//			}
+			
+			var df = document.createDocumentFragment();
+			var ul = document.createElement("ul");
+			
+			for(var i = 0; i < 10; i++) {
+				var li = document.createElement("li");
+				li.innerHTML = i;
+				ul.appendChild(li);
+			}
+			df.appendChild(ul);
+			document.body.appendChild(df);
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

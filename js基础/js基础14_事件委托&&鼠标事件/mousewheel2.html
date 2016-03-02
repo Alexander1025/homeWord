@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mousewheel</title>
+	<style type="text/css">
+		body {
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		回调 (是异步编程的一种方法，需要按顺序执行异步逻辑的时候，将后续逻辑封装在回调函数中作为起始函数的参数)
+	</div>
+	<div>
+		鼠标滚轮向下滑动body颜色变成红色，向上变成蓝色
+	</div>
+	<script type="text/javascript">
+	/**
+	
+	* element 要添加滚轮事件的元素
+	* up 向上滚动的事件处理函数
+	* down 向下滚动的事件处理函数
+	*/
+	//回调函数（顺序）
+	function mousewheel(element, up, down) {
+		element.onmousewheel = fn;//给ie,chrome添加滚轮事件
+		if(element.addEventListener) {
+			element.addEventListener("DOMMouseScroll", fn, false);
+		}
+		function fn(e) {
+			var e = e || window.event;
+			if(e.wheelDelta < 0 || e.detail > 0) {
+				// alert("down");
+				down();
+				// document.body.style.backgroundColor = "red";
+			}else {
+				// alert("up");
+				up();
+				// document.body.style.backgroundColor = "blue";
+			}
+		}
+	}
+	mousewheel(document,function() {
+		alert('up')
+	},function() {
+		alert("down");
+	})
+	</script>
+</body>
+</html>

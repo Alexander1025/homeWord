@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>while</title>
+	<style type="text/css">
+		#ul > li {
+
+		}
+	</style>
+</head>
+<body>
+	<div id="block">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere quisquam porro dolore!
+	</div>
+	<div class="list">
+		<h1>this is title</h1>
+		<p>this is a param</p>
+	</div>
+	<ul id="ul">
+		<li>1
+			<div>
+				不包括这个
+			</div>
+		</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<ol>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ol>
+	<form>
+		<input type="text" name="username">
+		<input type="passsword" name="passsword">
+	</form>
+	<script type="text/javascript">
+	//document.getElementById 获取到的是唯一的
+	var block = document.getElementById("block");
+	// block.style.color = "red";
+	var title = document.getElementsByTagName("h1");
+	// title[0].style.color = "green";
+
+	var list = document.getElementById("ul").getElementsByTagName("li");//实时
+	var list1 = document.getElementById("ul").children;
+
+	var list2 = document.querySelectorAll("#ul li:nth-child(1)");
+	//ie6,7 不支持 ,ie8 开始支持，现代浏览器 
+	var list3 = document.querySelector("li");
+	
+	</script>
+</body>
+</html>

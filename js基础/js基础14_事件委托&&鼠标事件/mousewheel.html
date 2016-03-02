@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mousewheel</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function mousewheel(element, callback) {
+		element.onmousewheel = fn;
+		if(element.addEventListener) {
+			element.addEventListener("DOMMouseScroll", fn, false);
+		}
+		function fn(e) {
+			var e = e || window.event;
+			if(e.wheelDelta < 0 || e.detail > 0) {
+				e.delta = false;//向下
+			}else {
+				e.delta = true;
+			}
+			callback(e);
+		}
+	}
+	mousewheel(document,function(e) {
+		if(e.delta) {
+			alert("up")
+		}else {
+			alert("down")
+		}
+	})
+	</script>
+</body>
+</html>

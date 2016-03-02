@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<ol>
+		<li>
+			事件绑定，解绑
+		</li>
+		<li>
+			阻止冒泡，阻止默认事件
+		</li>
+		<li>
+			事件委托，事件代理
+		</li>
+		<li>
+			事件模拟
+		</li>
+	</ol>
+	<script type="text/javascript">
+	// $(document).bind("click keypress", function() {
+	// 	console.log("document bind");
+	// })	
+	//事件绑定
+	$(document).bind({
+		click:function() {
+			console.log("document click");
+		},
+		keypress:function() {
+			console.log("document keypress");
+		}
+	})
+	//事件解绑
+	//unbind()没有参数，解除所有的事件绑定
+	$(document).unbind("click");
+	</script>
+</body>
+</html>

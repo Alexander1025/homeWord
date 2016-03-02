@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度影片</title>
+</head>
+<body>
+	<h1>
+		天气
+	</h1>
+	<select id="movie">
+		<option value="广州">广州</option>
+		<option value="北京">北京</option>
+		<option value="深圳">深圳</option>
+	</select>
+	<ul id="weatherData">
+		<!-- <li>
+			日期：
+		</li>
+		<li>
+			温度：
+		</li>
+		<li>
+			天气：
+		</li> -->
+	</ul>
+	<div>
+		 http://api.map.baidu.com/telematics/v3/movie?qt=hot_movie&output=json&location=广州&ak=uIy0VwzdcZV9iUuDrZKD5Nna
+	</div>
+	<div>
+		http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=uIy0VwzdcZV9iUuDrZKD5Nna
+	</div>
+	
+	<script type="text/javascript">
+	var http = new XMLHttpRequest();
+	var movie = document.getElementById("movie")
+	var weatherData = document.getElementById("weatherData");
+	movie.onchange = function() {
+		// alert(movie.value)
+		var url = "weather.php?city="+movie.value;
+		http.open("get", url, true);
+		http.responseType = "json";
+		http.send(null);
+		http.onload = function() {
+			console.log(typeof http.response)
+			// var weather = JSON.parse(http.response);
+			var wData = http.response.results[0].weather_data;
+
+			var content = "<li>日期："+wData[0].date+"</li><li>温度："+wData[0].temperature+"</li><li>天气："+wData[0].weather+"</li>";
+			weatherData.innerHTML = content;
+		}
+	}
+	</script>
+</body>
+</html>

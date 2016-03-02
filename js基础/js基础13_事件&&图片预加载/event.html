@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+</head>
+<body>
+	<div>
+		通过on对象属性绑定的事件，只能绑定一次，如果绑定多次会被后面的相同的事件覆盖掉。
+	</div>
+	<script type="text/javascript">
+	document.onclick = function() {
+		alert("click");
+	}
+	document.onclick = function() {
+		alert("dblclick");
+	}
+	</script>
+</body>
+</html>

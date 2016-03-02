@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tween</title>
+	<style type="text/css">
+		#block {
+			width:100px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+			top:100px;
+			left:100px;
+			-webkit-transform: rotate(0);
+			-moz-transform: rotate(0);
+		}
+	</style>
+</head>
+<body>
+	<div id="block"></div>
+	<script type="text/javascript">
+	var block = document.getElementById("block");
+
+	var start = 0;
+	var end = 90;
+	var change = end - start;
+	var t = 0;
+	var maxT = 30;
+	var timer = setInterval(function() {
+		t++;
+		if(t >= maxT ) {
+			clearInterval(timer);
+		}
+		block.style.webkitTransform = "rotate("+(change*t/maxT + start )+"deg)";
+		block.style.mozTransform = "rotate("+(change*t/maxT + start )+"deg)";
+	},30)
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+	</ul>
+	<div>
+		$(selector)  $("#id") $(".list") --->选择查找节点
+		$(tag)  $("<div>aaa</div>")----->创建节点
+	</div>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	// $("div")$("<div></div>")
+	var h1 = document.createElement("h1");
+	h1.innerHTML = "this is title";
+	// document.body.appendChild(h1);
+	document.body.insertBefore(h1,document.body.children[0]);
+	
+	var $h1 = $("<h1 class='aaa'>this is title too</h1>");
+	$(document.body).append($h1);//父元素添加子元素到末尾
+	$("<h1>this is title</h1>").appendTo($(document.body))
+
+	$(document.body).prepend($h1);//父元素添加子元素到开头
+	$h1.prependTo($(document.body));
+	</script>
+</body>
+</html>

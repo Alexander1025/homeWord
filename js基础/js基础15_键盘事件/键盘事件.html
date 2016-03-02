@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+</head>
+<body>
+	<div>
+		onkeydown,onkeypress,onkeyup
+	</div>
+	<script type="text/javascript">
+	document.onkeydown = function(e) {
+		var e = e || window.event;
+		console.log(e.keyCode)
+	}
+	document.onkeypress = function(e) {
+		var e = e || window.event;
+		console.log(e.keyCode)
+	}
+	document.onkeyup = function(e) {
+		var e = e || window.event;
+		console.log(e.keyCode)
+	}
+	</script>
+</body>
+</html>

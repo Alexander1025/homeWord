@@ -1,0 +1,24 @@
+﻿1.使用滚轮缩放图片(s.gif)
+2.熟悉键盘事件（keydown,keypress,keyup,e.keyCode）
+3.模拟滚动条
+
+
+
+
+
+熟悉offset client scroll  getBoundingClientRect()
+
+回忆  dom操作  图片预加载
+
+看 mdn 事件
+
+
+
+今天：   
+	键盘事件
+
+	鼠标事件
+
+	事件委托
+
+	看scroll 

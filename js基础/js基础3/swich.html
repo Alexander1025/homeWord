@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#wrap {
+			width:300px;
+			height: 300px;
+			background-color: green;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<select>
+			<option value="height">高度</option>
+			<option value="width">宽度</option>
+			<option value="fontSize">字号</option>
+			<option value="backgroundColor">背景颜色</option>
+			<option value="color">字体颜色</option>
+		</select>
+		<input type="text">
+		<button>修改</button>
+	</form>
+	<div id="wrap">wrap</div>
+	<p>
+		tips：获取表单（input,select,radio,checkbox,textarea..）元素的值，使用value属性
+		获取非表单元素的内容，使用innnerHTML属性
+	</p>
+	<script type="text/javascript">
+	var selection = document.querySelector("select");
+	var input = document.querySelector("input");
+	var editButton = document.querySelector("button");
+	var wrap = document.getElementById("wrap");
+
+	editButton.onclick = function() {
+		// wrap.style.width = "200px";
+		// alert(wrap.innerHTML);
+
+		//开始逻辑代码
+		switch(selection.value) {
+			case "height":
+				wrap.style.height = input.value;
+				break;
+			case "width":
+				wrap.style.width = input.value;
+				break;
+			case "fontSize":
+				wrap.style.fontSize = input.value;
+				break;
+			case "backgroundColor":
+				wrap.style.backgroundColor = input.value;
+				break;
+			case "color":
+				wrap.style.color = input.value;
+				
+		}
+		return false;//阻止默认事件
+
+	}
+	// selection.onchange = function() {
+	// 	alert(this.value);
+	// }
+	</script>
+</body>
+</html>

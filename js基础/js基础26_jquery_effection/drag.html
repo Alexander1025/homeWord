@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin:0;
+			padding:0;
+		}
+		body {
+			height: 2000px;
+		}
+		#block {
+			/*margin-top: 10px;
+			margin-left: 10px;*/
+			position: absolute;
+			left:10px;
+			top:10px;
+			width:100px;
+			height:100px;
+			background-color: blue;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+	<!-- <div id="wrap"> -->
+		<div id="block"></div>
+	<!-- </div> -->
+	<div>
+		mousedown---》mousemove ---->mouseup
+	</div>
+	<div>
+		positon()获取是相对父元素的偏移坐标
+		offset()获取的是文档坐标
+		scrollTop();
+		scrollLeft();
+	</div>
+	<script type="text/javascript">
+	$(function() {
+		$("#block").on("mousedown",function(e) {
+			console.log($(this).position());
+			var pos = $(this).position();
+			var oW = e.clientX - pos.left;
+			var oH = e.clientY - pos.top;
+
+			$(document).on("mousemove",function(e) {
+				var oLeft = e.clientX - oW;
+				var oTop = e.clientY - oH;
+				if(oLeft < 0) {
+					oLeft = 0;
+				}else if(oLeft > $(window).width() - $("#block").outerWidth()) {
+					oLeft = $(window).width() - $("#block").outerWidth()
+				}
+				if(oTop < 0 ) {
+					oTop = 0;
+				}else if(oTop > $(window).height() - $("#block").outerHeight()) {
+					oTop = $(window).height() - $("#block").outerHeight()
+				}
+				$("#block").css({
+					left:oLeft,
+					top:oTop
+				})
+			})
+			
+		})
+		$(document).on("mouseup",function() {
+				$(document).unbind("mousemove");
+			})
+	})
+	</script>
+</body>
+</html>

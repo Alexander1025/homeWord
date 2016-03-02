@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#wrap {
+				width:300px;
+				height: 300px;
+				background-color: blue;
+			}
+			#alink {
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>
+			1.默认事件
+			a.通过addEventListener添加的，使用e.preventDefault();
+			b.通过on这种方式绑定的，使用return false;
+			2.阻止冒泡
+			a.通过addEventListener添加的,使用e.stopPropagation();
+			b.通过on这种方式绑定的，使用e.cancelBubble = true;
+	
+		</h1>
+		<div id="wrap">
+			<a href="http://www.baidu.com" id="alink">这是链接</a>
+		</div>
+		<script>
+			var alink = document.getElementById("alink");
+			var wrap = document.getElementById("wrap");
+			alink.addEventListener("click",function(e) {
+				
+				alert("alink");
+				e.preventDefault();//阻止默认事件
+				e.stopPropagation();//阻止事件传播
+			},false);
+			wrap.addEventListener("click",function(e) {
+				alert("wrap");
+			},false)
+			document.onclick = function(e) {
+				var e = e || window.event;
+				console.log(e);
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

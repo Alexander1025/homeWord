@@ -1,0 +1,18 @@
+﻿<ol>
+	<li>01-list</li>
+	<li>02-list</li>
+	<li>03-list</li>
+	<li>04-list</li>
+	<li>05-list</li>
+	<li>06-list</li>
+	<li>07-list</li>
+	<li>08-list</li>
+	<li>09-list</li>
+	<li>10-list</li>
+</ol>
+1.a.js生成以上ol结构;
+	b.将<li>05-list</li>移动到<li>10-list</li>前;
+	c.<li>01-list</li>复制多一份添加到末尾
+	d.生成一个li,内容为"hello world",替换掉<li>07-list</li>	
+2.完成乘法表，完善新浪微博
+3.三级联动

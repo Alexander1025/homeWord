@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jsonp</title>
+	</head>
+	<body>
+		<div>
+			同源策略(基于安全性的考虑，只能访问相同域名下的数据)
+			跨域（访问其他域名下的数据）
+		</div>
+		<div id="">
+			jsonp
+		</div>
+		<input type="text" id="keyword" />
+		<div id="result"></div>
+		<script>
+			var keyword = document.getElementById("keyword");
+			var result = document.getElementById("result");
+			var sogou = {};
+			window.sogou.sug = function(d) {
+				console.log(d[1]);
+//				var html = "";
+//				for(var i = 0; i < d.s.length; i++) {
+//					html += d.s[i] + "<br/>";
+//				}
+//				result.innerHTML = html;
+				result.innerHTML = d[1];
+			}
+			
+			keyword.oninput = function() {
+				var script = document.createElement("script");
+				script.src = "https://www.sogou.com/suggnew/ajajjson?key="+keyword.value+"&type=web"
+				document.head.appendChild(script);
+				document.head.removeChild(script);
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+

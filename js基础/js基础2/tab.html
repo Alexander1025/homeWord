@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tab</title>
+	<style type="text/css">
+		* {padding:0; margin:0;}
+		button {
+			background-color: #ccc;
+			width:80px;
+			height: 30px;
+		}
+		div{
+			width:200px;
+			height: 200px;
+			font-size: 64px;
+			background-color: #0c0;
+			display: none;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<button style="background-color: yellow;">按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<div style="display:block;">1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<script>
+		// array 数组
+		// 如何定义一个数组？？
+		var arr = [23,234,"sting",false,["sdf",124]];
+		// alert(arr[4][0]);
+
+		// this 谁调用了this，this指向谁
+		var buttonArr = document.getElementsByTagName("button");
+		var divArr = document.getElementsByTagName("div");
+		
+		for(var i = 0; i < buttonArr.length; i++) {
+			buttonArr[i].index = i;
+			// buttonArr[i].setAttribute("index",i);
+			buttonArr[i].onclick = function() {
+				for(var j = 0; j < buttonArr.length; j++) {
+					buttonArr[j].style.backgroundColor = "";
+					this.style.backgroundColor = "yellow";
+
+					divArr[j].style.display = "none";
+
+					divArr[this.index].style.display = "block";
+				}
+			}
+
+		}
+		
+	</script>
+</body>
+</html>

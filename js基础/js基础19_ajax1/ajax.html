@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<div>
+		readyState就绪状态码：
+		0：请求未初始化（还没有调用 open()）。
+		1：请求已经建立，但是还没有发送（还没有调用 send()）。
+		2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。
+		3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。
+		4：响应已完成；您可以获取并使用服务器的响应了
+	</div>
+	<div>
+		http状态码：
+		1xx:信息响应类，表示接收到请求并且继续处理 
+	2xx:处理成功响应类，表示动作被成功接收、理解和接受 
+	3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理 
+	4xx:客户端错误，客户请求包含语法错误或者是不能正确执行 
+	5xx:服务端错误，服务器不能正确执行一个正确的请求
+
+	常用的：200，304，404，403，
+	</div>
+	<script type="text/javascript">
+	var http = "";
+	//买一个手机
+	if(window.XMLHttpRequest) {
+		http = new XMLHttpRequest();//低版本ie不支持
+	}else {
+		http = new ActiveXObject("Msxml2.XMLHTTP");
+		// http = new ActivexObject("Microsoft.XMLHTTP")
+	}
+	//要拨打的号码
+	var url = "a.txt";
+	
+	http.open("get", url, true);//异步
+	http.send(null);
+	http.onreadystatechange = function() {
+		console.log(http.readyState);
+		//readyState == 4响应完成
+		if(http.readyState == 4 && ((http.status >= 200 && http.status < 300) || http.status == 304)) {
+			console.log(http.responseText);
+		}
+	}
+	</script>
+</body>
+</html>

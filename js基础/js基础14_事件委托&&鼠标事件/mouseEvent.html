@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件</title>
+	<style type="text/css">
+		#block {
+			width:200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		鼠标事件：click,dblclick,mousedown,mousemove(鼠标移动),mouseup,mouseover(鼠标移上去的,冒泡),mouseout(鼠标离开，冒泡)，mouseenter(鼠标移上去的，不冒泡),mouseleave(鼠标离开,不冒泡),contextmenu(右键菜单),mousewheel【没有成为标准，火狐：DOMMouseScroll】
+	</div>
+	<div id="block">
+		<span>abc</span>
+	</div>
+	<script type="text/javascript">
+	var block = document.getElementById("block");
+	block.onmouseover = function(e) {
+		// console.log("mouseover");
+		console.log(e);
+	}
+	block.onmouseenter = function(e) {
+		// console.log("mouseenter");
+		console.log(e);
+	}
+	</script>
+</body>
+</html>

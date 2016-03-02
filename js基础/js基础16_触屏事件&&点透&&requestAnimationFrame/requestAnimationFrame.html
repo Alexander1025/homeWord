@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>requestAnimationFrame</title>
+	<style type="text/css">
+		body {
+			overflow: hidden;
+		}
+		#block {
+			width:200px;
+			height: 200px;
+			background-color: blue;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		setInterval(fn,30)
+		requestAnimationFrame();
+	</div>
+	<div id="block"></div>
+	<script type="text/javascript">
+	var block = document.getElementById("block");
+	var dX = 2;
+	var dY = 3;
+	var oLeft = block.offsetLeft;
+	var oTop = block.offsetTop;
+
+	setInterval(function() {
+		oLeft += dX;
+		oTop += dY;
+		if(oLeft < 0 ||oLeft > (document.documentElement.clientWidth - block.offsetWidth)) {
+			dX *= -1;
+		}
+		if(oTop < 0 || oTop > (document.documentElement.clientHeight - block.offsetHeight)) {
+			dY *= -1;
+		}
+		block.style.left = oLeft + "px";
+		block.style.top = oTop + "px";
+	}, 17)
+	</script>
+</body>
+</html>

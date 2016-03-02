@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#wrap {
+				border:1px solid red;
+				width:400px;
+				height: 300px;
+				position: relative;
+			}
+			#block {
+				position:absolute;
+				left:0;
+				top:0;
+				width:50px;
+				height: 50px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="block"></div>
+		</div>
+		<p>
+			block.getBoundingClientRect()
+		</p>
+		<script type="text/javascript">
+			var wrap = document.getElementById("wrap");
+			var block = document.getElementById("block");
+
+			var x = 1;
+			var y = 2;
+			var oLeft = block.offsetLeft;
+			var oTop = block.offsetTop;
+			var maxWidth = wrap.offsetWidth - block.offsetWidth;//块移动的最大的水平距离
+			var maxHeight = wrap.offsetHeight - block.offsetHeight;//块移动的最大的垂直距离
+			var directX = true;//控制运动向右，还是向左走
+			var directY = true;
+			setInterval(function() {
+				if(directX) {
+					oLeft += x;
+				}else {
+					oLeft -= x;
+				}
+				if(directY) {
+					oTop += y;
+				}else {
+					oTop -= y;
+				}
+				// if(oLeft > maxWidth) {
+				// 	directX = false;
+				// }else if(oLeft < 0){
+				// 	directX = true;
+				// }
+				//超出边界改变运动方向
+				if(oLeft > maxWidth || oLeft < 0) {
+					directX = !directX;
+				}
+				if(oTop > maxHeight || oTop < 0) {
+					directY = !directY;
+				}
+				block.style.left = oLeft + "px";
+				block.style.top = oTop + "px";
+			},16)
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

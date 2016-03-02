@@ -1,0 +1,6 @@
+﻿1.电话（座机）(xxx-12345678|xxxx-12345678|xxx-1234567|xxxx-1234567)
+2.邮箱(neteasy@163.com|google@gmail.com.cn|11111111@qq.com|weibo.sina@sina.com)
+3.ipv4地址 (0.0.0.0 - 255.255.255.255)
+4.昵称（长度不能超过24位，中文占2位，字符和字母占一位）
+5.url(1.http://www.w3school.com.cn/  2.https://www.w3school.com.cn/)
+6.写一个通过class名获取元素的函数getClass(cname)，返回获取后的节点数组

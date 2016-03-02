@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>callback</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function f1(fn) {
+		alert("hello");
+		fn();
+	}
+	function f2() {
+		alert("world");
+	}
+	f1(f2);
+	// setTimeout(f1,0);
+	// f2();
+	</script>
+</body>
+</html>

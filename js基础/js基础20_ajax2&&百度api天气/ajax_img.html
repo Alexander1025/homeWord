@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<a href="javascript:void(0);" id="rBtn">请求图片</a>
+	<div id="result">
+		<img src="">
+	</div>
+	<script type="text/javascript">
+	var rBtn = document.getElementById("rBtn");
+	var result = document.getElementById("result");
+	//点击发起一个请求
+	rBtn.onclick = function() {
+		var http = new XMLHttpRequest();
+		console.log(http);
+		var src = "1.jpg";
+		http.responseType = "blob";
+		http.open("get", src, true);
+		http.send(null);
+		http.onload = function() {
+			console.log(http.response);
+			//http.response返回一个二进制数据
+			var image = new Image();
+			//URL.createObjectURL 将二进制数据转换成一个URL对象
+			image.src = window.URL.createObjectURL(http.response);
+			result.appendChild(image);
+			console.log(image.src);
+			image.onload = function() {
+				URL.revokeObjectURL(image.src);
+			}
+			// 
+		}
+	}
+	</script>
+</body>
+</html>

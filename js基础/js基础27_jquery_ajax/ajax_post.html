@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var xhr = null;
+	if(window.XMLHttpRequest) {
+		xhr = new XMLHttpRequest();//ie7开始
+	}else {
+		xhr = new ActiveXObject("Msxml2.XMLHTTP");
+	}
+	var url = "a.txt";
+	xhr.open("post",url,true)  //true异步
+	xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	xhr.send("t="+ (new Date()).getTime());
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState == 4 && xhr.status == 200) {
+			console.log(xhr.responseText);
+		}
+	}
+	</script>
+</body>
+</html>

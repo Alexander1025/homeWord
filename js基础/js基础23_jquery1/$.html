@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$</title>
+</head>
+<body>
+	<div id="wrap"></div>
+	<div>
+		wrap.innerHTML
+		$("#wrap").html()
+		wrap.style.display = "block"
+		$("#wrap").css("display","block")
+	</div>
+	<div>	
+		原生的jsDOM对象跟jQuery DOM对象方法不能互相调用
+		1.原生对象到jq对象的转换
+			$(dom);
+		2.jq对象 --- 》 原生的对象
+			$("#wrap").get(0)
+			$("#wrap")[0]
+	</div>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	var wrap = document.getElementById("wrap");
+	wrap.innerHTML
+	// $("#wrap")
+	</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#block {
+			height: 100px;
+			width:100px;
+			background-color: blue;
+			position: absolute;
+			left:100px;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="block"></div>
+	<script type="text/javascript">
+	var block = document.getElementById("block");
+	//设置左上右下四个方向的标志位，如果为true就表示对应的方向被按下
+	var leftFlag = false;
+	var topFlag = false;
+	var rightFlag = false;
+	var bottomFlag = false;
+	
+	// var leftFlag = topFlag = rightFlag = bottomFlag = false;//不推荐使用
+
+	setInterval(function() {
+		if(leftFlag) {
+			block.style.left = block.offsetLeft - 10 + "px";
+		}
+		if(topFlag) {
+			block.style.top = block.offsetTop - 10 + "px";
+		}
+		if(rightFlag) {
+			block.style.left = block.offsetLeft + 10 + "px";
+		}
+		if(bottomFlag) {
+			block.style.top = block.offsetTop + 10 + "px";
+		}
+	},30)
+
+	document.onkeydown = function(e) {
+		var e = e || window.event;
+		switch(e.keyCode) {
+			case 37:
+				leftFlag = true;
+				break;
+			case 38:
+				topFlag = true;
+				break;
+			case 39:
+				rightFlag = true;
+				break;
+			case 40:
+				bottomFlag = true;
+				break;
+		}
+	}
+
+	document.onkeyup = function() {
+		leftFlag = topFlag = rightFlag = bottomFlag = false;
+	}
+	</script>
+</body>
+</html>

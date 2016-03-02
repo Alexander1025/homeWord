@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<a href="http://www.baidu.com">百度一下</a>
+	<script type="text/javascript">
+	$(function() {
+		// function c() {
+
+		// }
+		// $("a").on("click",c);
+		// $(document).click(function(e) {
+		// 	e.preventDefault();
+		// })
+		$("a").on("click",function(e) {
+			// console.log(e);
+			console.log("a click");
+			e.preventDefault();//阻止默认事件
+			e.stopPropagation();//取消事件的传播
+		})
+		$(document).on("click",function(e) {
+			console.log("document click");
+		})
+		// document.onclick = function(e) {
+		// 	console.log(e);
+		// }
+	})
+	</script>
+</body>
+</html>

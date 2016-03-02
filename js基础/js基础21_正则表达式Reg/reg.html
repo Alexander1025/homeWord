@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+</head>
+<body>
+	<div>
+		对字符串的验证匹配
+		对表单的输入验证（邮箱，电话，ip...）
+	</div>
+	<div>
+		js:RegExp,Date,XMLHttpRequest
+		声明正则表达式：
+		1.字面量，2.new RegExp();
+		RegExp.test(string);
+		判断string字符串是否满足正则表达式（boolean）
+		g全局，所有
+		i忽略大小写
+	</div>
+	<script type="text/javascript">
+	var reg = /abc/i;//字面量
+	var reg1 = new RegExp("abc","i");
+	var str = "aaAbcccc";
+	console.log(reg.test(str));
+	</script>
+</body>
+</html>

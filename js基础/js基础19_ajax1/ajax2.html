@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<button id="requestBtn">请求文本</button>
+	<div id="txt"></div>
+	<script type="text/javascript">
+		var requestBtn = document.getElementById("requestBtn");
+		var txt = document.getElementById("txt");
+		var http = new XMLHttpRequest();
+		var url = "b.txt";
+		requestBtn.onclick = function() {
+			http.open("GET", url, true);
+			http.send(null);
+			http.onreadystatechange = function() {
+				if(http.readyState == 4 && (http.status == 200 || http.status == 304)) {
+					console.log(http.responseText);
+					txt.innerHTML = http.responseText;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

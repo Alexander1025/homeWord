@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <div>
+		["http://f.hiphotos.baidu.com/image/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=248f596b6e81800a71e58b08890e5088/e61190ef76c6a7ef3bcc08c2fffaaf51f2de6668.jpg","http://a.hiphotos.baidu.com/image/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=9e02c7b2d2160924c325a01dec3c5688/7e3e6709c93d70cf13380ae9fadcd100bba12b17.jpg","http://h.hiphotos.baidu.com/image/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=7d5935c5aad3fd1f2909a03c0875466d/f2deb48f8c5494ee0fcda9f22ff5e0fe98257e6a.jpg"];
+	</div> -->
+	<div>图片已加载<span id="bar">0</span></div>
+	<script type="text/javascript">
+	var imgArr = ["http://f.hiphotos.baidu.com/image/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=248f596b6e81800a71e58b08890e5088/e61190ef76c6a7ef3bcc08c2fffaaf51f2de6668.jpg","http://a.hiphotos.baidu.com/image/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=9e02c7b2d2160924c325a01dec3c5688/7e3e6709c93d70cf13380ae9fadcd100bba12b17.jpg","http://h.hiphotos.baidu.com/image/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=7d5935c5aad3fd1f2909a03c0875466d/f2deb48f8c5494ee0fcda9f22ff5e0fe98257e6a.jpg"];
+	var imgList = [];
+	var len = 0;
+	var bar = document.getElementById("bar");
+	for(var i = 0; i < imgArr.length; i++) {
+		imgList[i] = new Image();
+		imgList[i].src = imgArr[i];
+		imgList[i].onload = function() {
+			len++;
+			//进度条
+			bar.innerHTML = parseInt(len/imgArr.length*100) + "%";
+			if(len == imgArr.length) {
+				alert("所有的图片都加载好了")
+				for(var j = 0; j < imgList.length; j++) {
+					document.body.appendChild(imgList[j]);
+				}
+			}
+		}
+	}
+
+	</script>
+</body>
+</html>

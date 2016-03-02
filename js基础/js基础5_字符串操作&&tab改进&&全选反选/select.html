@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选反选</title>
+</head>
+<body>
+	
+	<input type="button" value="全选" id="all">
+	<input type="button" value="反选" id="reverse">
+	<input type="checkbox" id="flagCheck">
+	<ul id="checkboxList">
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+		<li><input type="checkbox"></li>
+	</ul>
+	<p>
+		布尔属性，只要name即可，值可为空
+		checked,selected,readonly,disabled....
+	</p>
+	<script type="text/javascript">
+	//1.找节点
+	var allBtn = document.querySelectorAll("#all")[0];
+	var reverseBtn = document.querySelector("#reverse");
+	var flagCheck = document.getElementById("flagCheck");
+	var checkList = document.querySelectorAll("#checkboxList input");
+	function checkAll() {
+		for(var j = 0; j < checkList.length; j++) {
+			if(!checkList[j].checked) {
+				break;
+			}
+		}
+		if(j == checkList.length) {
+			// alert("全部为真")
+			flagCheck.checked = true;
+		}else {
+			// alert("至少一个不为真");
+			flagCheck.checked = false;
+		}
+	}
+	//2.加事件
+	//全选
+	allBtn.onclick = function() {
+		if(flagCheck.checked) {
+			flagCheck.checked = false;
+			for(var i = 0; i < checkList.length; i++) {
+				checkList[i].checked = false;
+			}
+		}else {
+			flagCheck.checked = true;
+			for(var i = 0; i < checkList.length; i++) {
+				checkList[i].checked = true;
+			}
+		}
+		
+	}
+	//反选
+	reverseBtn.onclick = function() {
+		for(var i = 0; i < checkList.length; i++) {
+			if(checkList[i].checked) {
+				checkList[i].checked = false;
+			}else {
+				checkList[i].checked = true;
+			}
+		}
+		//执行检查所有checkList是否被选上了
+		checkAll();
+	}
+
+	for(var i = 0; i < checkList.length; i++) {
+		checkList[i].onclick = checkAll;
+	}
+	</script>
+</body>
+</html>

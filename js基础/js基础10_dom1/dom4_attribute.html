@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="wrap" class="wrap" data-index="aaa" data-name="xuefei">
+		<li>
+			<a href="###">1</a>
+		</li>
+		<li>
+			<a href="###">2</a>
+		</li>
+		<li>
+			<a href="###">3</a>
+		</li>
+		<li id="last">
+			<a href="###">4</a>
+		</li>
+		<!-- <li>
+			<a href="###">1</a>
+		</li> -->
+	</ul>
+	<p>
+		获取元素：document.getElementById()
+		document.getElementsByTagName()
+		document.querySelector();
+		document.querySelectorAll();
+	</p>
+	<p>
+		创建元素节点：document.createElement("");
+		创建文本节点：document.createTextNode();
+		innerHTML
+		children
+		插入到文档里：
+		parentNode.appendChild();
+		parentNode.insertBefore();
+		移除节点：
+		parentNode.removeChild();
+		复制节点
+		cloneNode(bol); bol = true深复制
+	</p>
+	<p>
+		document.createElement();
+		innerHTML
+		createTextNode()
+		parentNode.appendChild();//从末尾插入
+		parentNode.insertBefore(newNode,targetNode);
+		//从指定的位置插入
+		parentNode.removeChild()
+		cloneNode();
+	</p>
+	<p>
+		data-自定义属性
+	</p>
+	<script type="text/javascript">
+	var wrap = document.getElementById("wrap");
+
+	wrap.setAttribute("data-index",1);//设置属性
+	var id = wrap.getAttribute("id"); //获取属性
+	wrap.removeAttribute("data-name");
+	alert(id)
+	</script>
+</body>
+</html>

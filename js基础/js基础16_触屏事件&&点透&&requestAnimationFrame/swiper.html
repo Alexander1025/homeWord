@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+		* {
+			padding: 0;
+			margin:0;
+		}
+		body {
+			text-align: center;
+		}
+		#wrap {
+			width:100%;
+			overflow: hidden;
+			margin:0 auto;
+			position: relative;
+		}
+		#inner {
+			width:9999px;
+			position: relative;
+			overflow: hidden;
+			left:0;
+			top:0;
+			/*transition: all 800ms;*/
+		}
+		#inner img {
+			float: left;
+			width:100vw;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="inner">
+			<img src="img/1.jpg" alt="" draggable = "false">
+			<img src="img/2.jpg" alt="" draggable = "false">
+			<img src="img/3.jpg" alt="" draggable = "false">
+			<img src="img/4.jpg" alt="" draggable = "false">
+		</div>
+	</div>
+	<button id="prevBtn">上一张</button>
+	<button id="nextBtn">下一张</button>
+	<script type="text/javascript">
+	var wrap = document.getElementById("wrap");
+	var inner = document.getElementById("inner");
+	var imgList = inner.children;
+	var perWidth = imgList[0].offsetWidth;
+	var isMoveing=false;
+
+	var prevBtn = document.getElementById("prevBtn");
+	var nextBtn = document.getElementById("nextBtn");
+	
+	var index = 0;
+	var oldX,oW,oH,oLeft;
+	function touchBegin(e) {
+		console.log(e);
+		var touches = e.touches[0];
+		oldX = touches.clientX;
+		oW = touches.clientX - inner.offsetLeft;
+		oH = touches.clientY - inner.offsetTop;
+		oLeft = inner.offsetLeft;
+		inner.style.webkitTransition = "";
+	}
+	inner.addEventListener("transitionend",function(e){
+		inner.addEventListener("touchstart", touchBegin, false);
+		inner.addEventListener("touchmove", touchMove, false);
+		inner.addEventListener("touchend", touchEnd, false);
+	},false)
+	inner.addEventListener("touchstart", touchBegin, false);
+	inner.addEventListener("touchmove", touchMove, false);
+	inner.addEventListener("touchend", touchEnd, false);
+	function touchMove(e) {
+		var touches = e.touches[0];
+		var oLeft = touches.clientX - oW;
+		var oTop = touches.clientY - oH;
+
+		inner.style.left = oLeft + "px";
+	}
+	function touchEnd(e){ 
+				
+		var touches = e.changedTouches[0];
+		var oLeft = touches.clientX - oW;
+		var newX = touches.clientX;
+		inner.style.webkitTransition = "all 0.8s";
+		if(Math.abs(newX - oldX) > 50) {
+			if(newX - oldX > 0) {
+				// prevPic();
+				index--;
+				if(index < 0) {
+					index = imgList.length - 1;
+				}
+			}else {
+				// nextPic();
+				index++;
+				if(index > imgList.length - 1) {
+					index = 0;
+				}
+			}
+			
+			inner.style.left = - index * perWidth + "px";
+
+		}else {
+			inner.style.left = - index * perWidth + "px";
+		}
+		document.addEventListener("touchstart",f,false);
+		inner.removeEventListener("touchstart", touchBegin, false);
+		inner.removeEventListener("touchmove", touchMove, false);
+		inner.removeEventListener("touchend", touchEnd, false);
+		// inner.removeEventListener("touchmove", touchMove, false);
+	}
+	function f(e) {
+		e.preventDefault();
+	}
+
+	
+	</script>
+</body>
+</html>

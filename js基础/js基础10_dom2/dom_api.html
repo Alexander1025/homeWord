@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#block {
+
+		}
+	</style>
+</head>
+<body>
+	<h2 id="title">
+		获取元素的api
+		document.getElementById("block");---->唯一的，一个
+		document.getElementsByTagName();----->类数组对象
+		document.getElementsByClassName();----->类数组对象
+		document.getElementsByName();
+		document.querySelector("#block");找第一个
+		document.querySelectorAll();//IE8开始支持
+	</h2>
+	<h2 id="title1">
+		创建元素
+		document.createElement("h1");
+	</h2>
+	<h2>
+		将创建的元素插入到文档中，或目标元素改变位置
+		parentNode.appendChild(newNode);
+		parentNode.insertBefore(newNode,positionNode)
+		
+		替换节点
+		parentNode.replaceChild(要替代的元素,被替代的元素);
+	</h2>
+	<h2>
+		复制节点
+		h1.cloneNode(bol);
+		bol = false ---->浅复制（不复制当前的元素，不包含子元素）
+		bol = true ----->深复制（包含子元素）
+	</h2>
+	<h2>
+		元素属性的增修改移除
+		element.setAttribute(name,value);
+		element.getAttribute("type");
+		element.removeAttribute("name");
+	</h2>
+	<form>
+		<input type="text" name="" data-name="xxx">
+	</form>
+</body>
+</html>

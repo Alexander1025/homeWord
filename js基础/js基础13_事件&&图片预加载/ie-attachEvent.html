@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ie</title>
+</head>
+<body>
+	<div>
+		ie专属事件attachEvent,detachEvent,里边的this指的是window
+	</div>
+	<script type="text/javascript">
+	function f() {
+		// alert("click")
+		alert(this===window);
+		//this===window
+		console.log(this);
+	}
+	document.attachEvent("onclick", f);//添加事件
+	document.detachEvent("onclick", f);//移除事件
+	</script>
+</body>
+</html>

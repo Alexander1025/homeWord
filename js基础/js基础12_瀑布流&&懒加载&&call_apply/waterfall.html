@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#wrap {
+			overflow: hidden;
+		}
+		#wrap li {
+			float: left;
+			width: 250px;
+			font-size: 56px;
+			margin: 0 20px;
+			list-style-type: none;
+		}
+		#wrap li div {
+			margin-bottom: 20px;
+			border: 1px solid red;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		怎么判断滚动条到底了？onscroll事件
+	</div>
+	<ul id="wrap">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script type="text/javascript">
+	// window.onscroll = function() {
+	// 	console.log(1)
+	// }
+	var wrap = document.getElementById("wrap");
+	var list = wrap.children;
+
+	function rnd(min, max) {
+		return parseInt(Math.random()*(max - min) + min);
+	}
+	function waterfall() {
+		//生成10div
+		for(var i = 0; i < 10; i++) {
+			var div = document.createElement("div");
+			div.innerHTML = i;
+			div.style.height = rnd(200,400) + "px";
+			var minList = list[0];
+			for(var j = 0; j < list.length; j++) {
+				if(minList.offsetHeight > list[j].offsetHeight) {
+					minList = list[j];
+				}
+			}
+
+			minList.appendChild(div);
+		}
+	}
+	waterfall();
+	window.onscroll = function() {
+		if(wrap.getBoundingClientRect().bottom <= document.documentElement.clientHeight) {
+			// alert("到底了")
+			waterfall();
+		}
+	}
+	
+	</script>
+</body>
+</html>

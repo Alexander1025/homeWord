@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#block {
+			height: 100px;
+			width:100px;
+			background-color: blue;
+			position: absolute;
+			left:100px;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="block"></div>
+	<script type="text/javascript">
+	var block = document.getElementById("block");
+	var leftFlag = false;
+	topFlag = false;
+	rightFlag = false;
+	bottomFlag = false;
+
+	var leftFlag = topFlag = rightFlag = bottomFlag = false;
+	function fn() {
+		// var leftFlag = topFlag = rightFlag = bottomFlag = false;
+		var leftFlag = false;
+		topFlag = false;
+		rightFlag = false;
+		bottomFlag = false;
+	}
+	fn();
+	</script>
+</body>
+</html>

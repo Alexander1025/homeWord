@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>
+		全局对象 window
+	</p>
+	<script type="text/javascript">
+	var global = "global";
+	function outer() {
+		alert(global);
+		var global = "scope";
+		alert(global);
+		function inner() {
+			alert(global);
+			// var golbal = "inner";
+		}
+		inner();
+	}
+
+	window.outer();
+	</script>
+</body>
+</html>

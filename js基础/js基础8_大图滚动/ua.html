@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>userAgent</title>
+</head>
+<body>
+	<p>
+		"Mozilla/5.0 (Windows Phone 10.0;  Android 4.2.1; Nokia; Lumia 520) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Mobile Safari/537.36 Edge/12.0
+	</p>
+	<p>
+		通过navigator.userAgent判断是否ie6浏览器。
+		判断返回的字符串是否包含MSIE 6.0
+	</p>
+	<script type="text/javascript">
+		if(navigator.userAgent.toUpperCase().indexOf("MSIE 6.0") > 0) {
+			alert("你所使用的浏览器太低级了，请升级")
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>location</title>
+</head>
+<body>
+	<span id="link">百度一下</span>
+	<button id="reload">刷新</button>
+	<script type="text/javascript">
+	var link = document.getElementById("link");
+	var reload = document.getElementById("reload");
+	link.onclick = function() {
+		location.href = "http://www.baidu.com";
+	}
+	reload.onclick = function() {
+		location.reload();
+	}
+	</script>
+</body>
+</html>

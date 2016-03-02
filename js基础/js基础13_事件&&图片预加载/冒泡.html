@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件流</title>
+	<style type="text/css">
+		#block {
+			width:200px;
+			height: 200px;
+			background-color: blue;
+		}
+		a {
+			color:#fff;
+			font-size: 32px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		冒泡
+		onclick-->事件添加到冒泡阶段
+		addEventListener(type,handler,false)--->添加到冒泡阶段
+		addEventListener(type,handler,true) ---->
+		添加事件到捕获阶段
+	</div>
+	<div id="block">
+		<a href="http://www.baidu.com" id="alink">百度一下</a>
+	</div>
+	<script type="text/javascript">
+	var block = document.getElementById("block");
+	var alink = document.getElementById("alink");
+
+	
+	alink.onclick = function(e) {
+		var e = e || window.eve
+		alert("alink");
+		console.log(e);
+		return false;
+	}
+	
+	block.onclick = function() {
+		alert("block");
+	}
+	document.addEventListener("click",function(e) {
+		console.log(e);
+		alert("capture document")
+	},true)
+	document.onclick = function() {
+		alert("document");
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<style type="text/css">
+		ul {
+			border:1px solid red;
+		}
+		li {
+			border:1px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		事件委托：利用冒泡原理，将事件添加到已存在页面上的节点，后来动态添加的子元素也包含事件
+	</div>
+	<ul id="wrap">
+		<li>01</li>
+		<li>02</li>
+		<li>03</li>
+		<li>04</li>
+	</ul>
+	<script type="text/javascript">
+	var wrap = document.getElementById("wrap");
+	var list = document.querySelectorAll("#wrap li");
+	wrap.addEventListener("click", function(e) {
+		var e = e || window.event;
+		// console.log(e);
+		var target = e.target || e.srcElement;
+		console.log(target);
+		if(target.tagName == "LI") {
+			// alert(target.innerHTML)
+			target.parentNode.removeChild(target);
+		}
+		
+	},false);
+	</script>
+</body>
+</html>

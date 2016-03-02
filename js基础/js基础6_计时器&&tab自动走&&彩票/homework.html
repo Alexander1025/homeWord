@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业</title>
+</head>
+<body>
+	<pre>
+		一.有字符串"This is a world of programmers."
+		a.获取字符串的长度
+		b.返回一个数组["this", "is", "a", "world", "of", "programmers."] 
+		c.分别使用字符串方法（.slice(),.substring(),.substr()）返回"programmers";
+		d.分别使用字符串方法（转换成大写字母以及小写字母）
+		e.判断字符串里边是否有"hello","world";
+		f.搜索出字符串中所有的"s"的位置，并将其放进一个数组里边
+	</pre>
+	<script type="text/javascript">
+	var str = "This is a world of programmers.";
+	var targetStr = "programmers";
+	console.log(str.length);
+	console.log(str.split(" "));
+	var pos = str.slice(str.indexOf(targetStr),(str.indexOf(targetStr)+targetStr.length));
+	var pos1 = str.substring(str.indexOf(targetStr),(str.indexOf(targetStr)+targetStr.length));
+	var pos2 = str.substr(str.indexOf(targetStr),targetStr.length);
+	str.toLowerCase();
+	str.toUpperCase();
+
+	var arr = [];
+	for(var i = 0; i < str.length; i++) {
+		if(str[i] == "s") {
+			arr.push(i);
+			// arr[i] = i;
+		}
+	}
+	console.log(arr);
+
+	var position = 0;
+	var arr1 = [];
+	while(position <= str.length) {
+		var index = str.indexOf("s",position);
+		if(index == -1) {
+			break;
+		}
+		arr1.push(index)
+		position = index + 1;
+		// if(index > -1) {
+		// 	arr1.push(index)
+		// 	position = index + 1;
+		// }else {
+		// 	break;
+		// }
+		
+	}
+	</script>
+</body>
+</html>

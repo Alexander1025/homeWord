@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<div id="wrap" class="wrap">
+		<span class = "wrap">span1</span>
+		<span>span2</span>
+		<span>span3</span>
+		<span>span4</span>
+		<button>button1</button>
+		<button>button2</button>
+		<button>button3</button>
+		<button>button4</button>
+		<span>span5</span>
+		<span>span6</span>
+	</div>
+	<div>
+		filter(".wrap")
+		find(".wrap");
+		.each
+	</div>
+	<script type="text/javascript">
+	$("button").click(function() {
+		console.log($(this).index("button"));	
+	})
+	for(var i = 0; i < $("span").length; i++) {
+		var html = $("span").eq(i).html();
+		$("span").eq(i).html(i+html);
+	}
+	$("span").each(function(index, key) {
+		$(key).html(index + $(key).html());
+	})
+
+	$("div").has("span").css("color","red");
+	</script>
+</body>
+</html>
